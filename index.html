@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Login & CV | Karim Khaled</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(to bottom right, #00b894, #55efc4);
+            color: white;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        .centered {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .login-box {
+            max-width: 400px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: auto;
+        }
+
+            .login-box input, .login-box button {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+            }
+
+            .login-box button {
+                background-color: #333;
+                color: white;
+                cursor: pointer;
+            }
+
+        #cv-section {
+            display: none;
+        }
+
+        .dark-theme {
+            background-color: #111;
+            color: #f1f1f1;
+        }
+
+        .hero img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 4px solid #000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .typing {
+            font-size: 1.2rem;
+            height: 1.5em;
+            overflow: hidden;
+            border-right: 2px solid #000;
+            white-space: nowrap;
+            animation: blink 0.7s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .scroll-down {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #444;
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+            .section h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+        .certs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cert {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 12px;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+            .cert h3 {
+                margin-bottom: 10px;
+                font-size: 1.1rem;
+            }
+
+            .cert a {
+                color: #0984e3;
+                text-decoration: none;
+            }
+
+                .cert a:hover {
+                    text-decoration: underline;
+                }
+
+        .links a {
+            margin: 0 10px;
+            font-size: 1.8rem;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+            .links a:hover {
+                transform: scale(1.2);
+                color: #0984e3;
+            }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+    <!-- LOGINصفحه ال-->
+
+    <div class="centered" id="login-section">
+
+        <div class="login-box" style="transform: scale(1.1);">
+
+            <h2>Login</h2>
+
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+            <label style="font-size: 14px; display: flex; align-items: center; justify-content: flex-start; gap: 8px; color: white;">
+
+                <input type="checkbox" onclick="togglePassword()"> Show Password
+
+            </label>
+
+            <button onclick="validateLogin()">Login</button>
+
+            <p id="error-message" style="color:red;"></p>
+        </div>
+    </div>
+
+
+    <!-- CVصفحه ال-->
+
+    <div id="cv-section" style="display: none;">
+
+        <div class="hero" style="text-align: center; background: #fff; color: #111;">
+
+            <img src="ana.jpg" alt="Karim's Photo">
+            <h1>Karim Khaled Ismail</h1>
+
+            <div class="typing" id="typedText" style="color: #111; font-weight: bold;"></div>
+            <div class="links fade-in" style="display: flex; justify-content: center; gap: 40px; margin-top: 20px; animation: fadeIn 1.5s ease-in-out;">
+
+                <div style="text-align: center;">
+
+                    <a href="https://github.com/Kvrimmmm" target="_blank" title="GitHub" style="font-size: 2.2rem; color: #111;"><i class="fab fa-github"></i></a>
+                    <p style="font-size: 14px; color: #111; margin: 5px 0;">GitHub</p>
+
+                </div>
+
+                <div style="text-align: center;">
+
+                    <a href="https://www.linkedin.com/in/karim-khaled-b17170329/" target="_blank" title="LinkedIn" style="font-size: 2.2rem; color: #111;"><i class="fab fa-linkedin"></i></a>
+                    <p style="font-size: 14px; color: #111; margin: 5px 0;">LinkedIn</p>
+
+                </div>
+
+
+                <div style="text-align: center;">
+
+                    <a href="https://www.facebook.com/kvrimmm/" target="_blank" title="Facebook" style="font-size: 2.2rem; color: #111;"><i class="fab fa-facebook"></i></a>
+                    <p style="font-size: 14px; color: #111; margin: 5px 0;">Facebook</p>
+
+                </div>
+
+            </div>
+            <div class="scroll-down" onclick="document.getElementById('certifications').scrollIntoView()">
+                ↓ My Certifications
+
+            </div>
+        </div>
+
+        <div class="section" id="certifications">
+
+            <h2>📜 Certifications</h2>
+
+            <div class="certs">
+
+                <table style="width: 100%; background: #fff; border-collapse: collapse;">
+                    <tr><th style="border: 1px solid #000; padding: 10px;color: #111;">Certificate</th><th style="border: 1px solid #000; padding: 10px; color: #111;">Link</th></tr>
+                    <tr><td style="border: 1px solid #000; padding: 10px;color: #111; font-weight: bold;">LIFE Global Badge</td><td style="border: 1px solid #000; padding: 10px; color: black; font-weight: bold;"><a href="https://www.life-global.org/en/badges/0f444d6c-b2fc-41c2-a078-1bdac9d5fe20" target="_blank" style="color: black; font-weight: bold; text-decoration: underline;">Open</a></td></tr>
+                    <tr><td style="border: 1px solid #000; padding: 10px;color: #111; ">LIFE Global Certificate</td><td style="border: 1px solid #000; padding: 10px;"><a href="https://www.life-global.org/certificate/526c618f-1bc3-41f9-990f-6cbc4528dbef" target="_blank" style="color: black; font-weight: bold; text-decoration: underline;">Open</a></td></tr>
+                    <tr><td style="border: 1px solid #000; padding: 10px;color: #111; ">NBE Certificate</td><td style="border: 1px solid #000; padding: 10px;"><a href="https://drive.google.com/file/d/1nFyGA6No5uTbDT1GlacUo-IwcSI-AeG_/view" target="_blank" style="color: black; font-weight: bold; text-decoration: underline;">Open</a></td></tr>
+                    <tr><td style="border: 1px solid #000; padding: 10px;color: #111; font-weight: bold;">Photoshop Course</td><td style="border: 1px solid #000; padding: 10px;"><a href="https://www.udemy.com/certificate/UC-01f032e4-d506-4a84-8c16-26025f42e9ba/" target="_blank" style="color: black; font-weight: bold; text-decoration: underline;">Open</a></td></tr>
+                    <tr><td style="border: 1px solid #000; padding: 10px;color: #111; ">Java Certificate</td><td style="border: 1px solid #000; padding: 10px;"><a href="https://www.udemy.com/certificate/UC-79dea534-850e-4708-ab8d-cba91c2a4210/" target="_blank" style="color: black; font-weight: bold; text-decoration: underline;">Open</a></td></tr>
+                    <tr><td style="border: 1px solid #000; padding: 10px;color: #111; ">Microsoft Learn</td><td style="border: 1px solid #000; padding: 10px;"><a href="https://learn.microsoft.com/en-us/users/karimkhalid-5713/achievements/ye24jmdr" target="_blank" style="color: black; font-weight: bold; text-decoration: underline;">Open</a></td></tr>
+                    <tr><td style="border: 1px solid #000; padding: 10px;color: #111; ">Forage Completion</td><td style="border: 1px solid #000; padding: 10px;"><a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/nkmk7gJitYs4TBvoA/9Wvq4L2WCFQDyyPp3_nkmk7gJitYs4TBvoA_YKE2qQKiydAbHJRLm_1750336168823_completion_certificate.pdf" target="_blank" style="color: black; font-weight: bold; text-decoration: underline;">Open</a></td></tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        function validateLogin() {
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirmPassword").value.trim();
+            const error = document.getElementById("error-message");
+
+            const validUser = "karim";
+            const validPass = "12345";                           // الباسورد غير وجرب
+
+            if (!username || !password || !confirmPassword) {
+                error.textContent = "All fields are required!";
+                return;
+            }
+            if (password !== confirmPassword) {
+                error.textContent = "Passwords do not match!";
+                return;
+            }
+            if (username === validUser && password === validPass) {
+                document.getElementById("login-section").style.display = "none";
+                document.getElementById("cv-section").style.display = "block";
+                typeWriter();
+            } else {
+                error.textContent = "Invalid username or password!";
+            }
+        }
+
+        const text = "👨‍💻 Coming Computer Engineering Student | Passionate about AI, Programming & Design";
+        let index = 0;
+        const speed = 60;
+
+
+        function typeWriter() {
+
+            if (index < text.length) {
+                document.getElementById("typedText").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+        function togglePassword() {
+            const password = document.getElementById("password");
+            const confirm = document.getElementById("confirmPassword");
+            const fields = [password, confirm];
+            fields.forEach(field => {
+                field.type = field.type === "password" ? "text" : "password";
+            });
+        }
+    </script>
+</body>
+</html>
